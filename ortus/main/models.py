@@ -71,7 +71,7 @@ class Post(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 class PhotoToPost(models.Model):
-    post = models.ForeignKey('Post')h
+    post = models.ForeignKey('Post')
     #photo = models.ForeignKey('Photo')
 
 class EventToPost(models.Model):
