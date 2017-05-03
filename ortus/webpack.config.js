@@ -1,4 +1,3 @@
-
 var path = require("path")
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
@@ -10,15 +9,16 @@ module.exports = {
   entry: {
     Index: ['webpack-dev-server/client?http://' + ip + ':3000',
                  'webpack/hot/only-dev-server',
-                './ortus/src/index.js'
+                './reactApp/src/index.js'
                 ],
      vendors: ['react'],
   },
- output: {
+  output: {
       path: path.resolve('./reactApp/bundles/'),
       filename: "[name]-[hash].js",
       publicPath: 'http://localhost:3000/assets/bundles/',
   },
+
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -28,7 +28,7 @@ module.exports = {
 
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader', query: {presets:['es2015', 'react']}} // to transform JSX into JS
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
     ],
   },
 
