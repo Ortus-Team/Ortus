@@ -1,24 +1,42 @@
 from django.db import models
+from django.contrib.auth.models import User
+from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
+from .permissions import IsStaffOrTargetUser
+from .serializers import UserSerializer
+from django.conf import settings
+
+AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
 
 # change later to reflect admin and normal users
 # see Django document for built in user function?
-class User(models.Model):
-    email = models.CharField(max_length=50)
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
-    class_standing = models.CharField(max_length=10)
-    join_date = models.DateTimeField(auto_now_add=True)
+# class User(models.Model):
+#     email = models.CharField(max_length=50)
+#     firstname = models.CharField(max_length=50)
+#     lastname = models.CharField(max_length=50)
+#     class_standing = models.CharField(max_length=10)
+#     join_date = models.DateTimeField(auto_now_add=True)
     #profile_pic = models.ForeignKey('Photo')
-    
+class User(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    model = User
+
+    def get_permissions(self):
+        # allow non-authenticated user to create via POST
+        return (AllowAny() if self.request.method == 'POST' 
+                else IsStaffOrTargetUser()),
+
 
 class FollowerToOrg(models.Model):
-    user = models.ForeignKey('User');
+    user = models.ForeignKey(AUTH_USER_MODEL);
     org = models.ForeignKey('Org');
     following_date = models.DateTimeField(auto_now_add=True)
 
 
 class UserToOrg(models.Model):
-    user = models.ForeignKey('User');
+    user = models.ForeignKey(AUTH_USER_MODEL);
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)
     # set rules so that new rows in this table are automatically added to FollowersTo'Org'
@@ -47,7 +65,7 @@ class PostToOrg(models.Model):
     post = models.ForeignKey('Post')
 
 class PostToUser(models.Model):
-    user = models.ForeignKey('User')
+    user = models.ForeignKey(AUTH_USER_MODEL)
     post = models.ForeignKey('Post')
 
 class PhotoToOrg(models.Model):
@@ -55,7 +73,7 @@ class PhotoToOrg(models.Model):
     #photo = models.ForeignKey('Photo')
 
 class PhotoToUser(models.Model):
-    user = models.ForeignKey('User')
+    user = models.ForeignKey(AUTH_USER_MODEL)
     #photo = models.ForeignKey('Photo')
 
 class Event(models.Model):
@@ -80,7 +98,7 @@ class EventToPost(models.Model):
 
 class UserToPost(models.Model):
     post = models.ForeignKey('Post')
-    user = models.ForeignKey('User')
+    user = models.ForeignKey(AUTH_USER_MODEL)
 
 class OrgToPost(models.Model):
     post = models.ForeignKey('Post')
@@ -90,7 +108,7 @@ class PhotoToEvent(models.Model):
     #photo = models.ForeignKey('Photo')
     event = models.ForeignKey(Event)
 
-#class 'User'toEvent(models.Model): //rsvp
+#class AUTH_USER_MODELtoEvent(models.Model): //rsvp
 
 class EventToOrg(models.Model):
     event = models.ForeignKey(Event);
@@ -98,6 +116,6 @@ class EventToOrg(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 class OfficerToOrg(models.Model):
-    user = models.ForeignKey('User');
+    user = models.ForeignKey(AUTH_USER_MODEL);
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)
