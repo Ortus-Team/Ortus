@@ -19,15 +19,18 @@ AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 #     class_standing = models.CharField(max_length=10)
 #     join_date = models.DateTimeField(auto_now_add=True)
     #profile_pic = models.ForeignKey('Photo')
-class User(viewsets.ModelViewSet):
-    serializer_class = UserSerializer
-    model = User
-
-    def get_permissions(self):
-        # allow non-authenticated user to create via POST
-        return (AllowAny() if self.request.method == 'POST' 
-                else IsStaffOrTargetUser()),
-
+#class User(viewsets.ModelViewSet):
+#    serializer_class = UserSerializer
+#    model = User
+#
+#    def get_permissions(self):
+#        # allow non-authenticated user to create via POST
+#        return (AllowAny() if self.request.method == 'POST' 
+#                else IsStaffOrTargetUser()),
+class Member(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    class_standing = models.CharField(max_length=10)
+    join_date = models.DateTimeField(auto_now_add=True)
 
 class FollowerToOrg(models.Model):
     user = models.ForeignKey(AUTH_USER_MODEL);
