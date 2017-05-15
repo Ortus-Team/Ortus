@@ -1,17 +1,9 @@
-from django.contrib.auth.models import User
+from main.models import Member
 from rest_framework import serializers
 
 # https://docs.djangoproject.com/en/1.11/ref/contrib/auth/  <-- info about django User model 
 class UserSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = User
-		fields = ('username', 'password', 'first_name', 'last_name', 'email',)
-		write_only_fields = ('password',)
-		read_only_fields = ('is_staff', 'is_superuser', 'is_active', 'date_joined',)
+		model = Member
+		fields = ('id', 'class_standing', 'join_date')
 
-	def restore_object(self, attrs, instance=None):
-		# call set_password on user object. Without this
-		# the password will be stored in plain text
-		user = super(UserSerializer, self).restore_object(attrs, instance)
-		user.set_password(attrs['password'])
-		return user

@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
-from .permissions import IsStaffOrTargetUser
-from .serializers import UserSerializer
 from django.conf import settings
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
