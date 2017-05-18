@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from rest_framework import viewsets
 from django.conf import settings
 
-AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+# AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 # from django.db.models.signals import post_save
 # from django.dispatch import receiver
 
@@ -29,14 +31,23 @@ class Member(models.Model):
     class_standing = models.CharField(max_length=10)
     join_date = models.DateTimeField(auto_now_add=True)
 
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Member.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, created, **kwargs):
+    instance.member.save()
+
 class FollowerToOrg(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL);
+    user = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     following_date = models.DateTimeField(auto_now_add=True)
 
 
 class UserToOrg(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL);
+    user = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)
     # set rules so that new rows in this table are automatically added to FollowersTo'Org'
@@ -65,7 +76,7 @@ class PostToOrg(models.Model):
     post = models.ForeignKey('Post')
 
 class PostToUser(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL)
+    user = models.ForeignKey('Member')
     post = models.ForeignKey('Post')
 
 class PhotoToOrg(models.Model):
@@ -73,7 +84,7 @@ class PhotoToOrg(models.Model):
     #photo = models.ForeignKey('Photo')
 
 class PhotoToUser(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL)
+    user = models.ForeignKey('Member')
     #photo = models.ForeignKey('Photo')
 
 class Event(models.Model):
@@ -98,7 +109,7 @@ class EventToPost(models.Model):
 
 class UserToPost(models.Model):
     post = models.ForeignKey('Post')
-    user = models.ForeignKey(AUTH_USER_MODEL)
+    user = models.ForeignKey('Member')
 
 class OrgToPost(models.Model):
     post = models.ForeignKey('Post')
@@ -116,6 +127,6 @@ class EventToOrg(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 class OfficerToOrg(models.Model):
-    user = models.ForeignKey(AUTH_USER_MODEL);
+    user = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)

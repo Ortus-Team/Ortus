@@ -1,9 +1,15 @@
-from main.models import Member
+from main.models import User
 from rest_framework import serializers
+
 
 # https://docs.djangoproject.com/en/1.11/ref/contrib/auth/  <-- info about django User model 
 class UserSerializer(serializers.ModelSerializer):
+	class_standing = serializers.CharField(source='member.class_standing')
+	join_date = serializers.DateTimeField(source='member.join_date')
 	class Meta:
-		model = Member
-		fields = ('id', 'class_standing', 'join_date')
+		model = User
+		#fields = ('id', 'class_standing', 'join_date',)
+		fields = ('id', 'username', 'first_name', 'class_standing', 'join_date')
+
+
 
