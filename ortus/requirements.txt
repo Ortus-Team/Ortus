@@ -1,8 +1,12 @@
 appdirs==1.4.3
 Django==1.11
+django-extensions==1.7.9
 django-webpack-loader==0.4.1
 djangorestframework==3.6.2
+httpie==0.9.9
 packaging==16.8
+Pygments==2.2.0
 pyparsing==2.2.0
 pytz==2017.2
+requests==2.14.2
 six==1.10.0
