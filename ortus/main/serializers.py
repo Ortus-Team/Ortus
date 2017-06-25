@@ -1,4 +1,5 @@
 from main.models import User
+from main.models import Photo
 from rest_framework import serializers
 
 
@@ -10,6 +11,11 @@ class UserSerializer(serializers.ModelSerializer):
 		model = User
 		#fields = ('id', 'class_standing', 'join_date',)
 		fields = ('id', 'username', 'first_name', 'class_standing', 'join_date')
+
+class PhotoSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Photo
+		fields = ('id', 'name', 'image')
 
 
 

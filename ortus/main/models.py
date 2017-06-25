@@ -5,27 +5,7 @@ from django.dispatch import receiver
 from rest_framework import viewsets
 from django.conf import settings
 
-# AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
-# from django.db.models.signals import post_save
-# from django.dispatch import receiver
 
-# change later to reflect admin and normal users
-# see Django document for built in user function?
-# class User(models.Model):
-#     email = models.CharField(max_length=50)
-#     firstname = models.CharField(max_length=50)
-#     lastname = models.CharField(max_length=50)
-#     class_standing = models.CharField(max_length=10)
-#     join_date = models.DateTimeField(auto_now_add=True)
-    #profile_pic = models.ForeignKey('Photo')
-#class User(viewsets.ModelViewSet):
-#    serializer_class = UserSerializer
-#    model = User
-#
-#    def get_permissions(self):
-#        # allow non-authenticated user to create via POST
-#        return (AllowAny() if self.request.method == 'POST' 
-#                else IsStaffOrTargetUser()),
 class Member(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     class_standing = models.CharField(max_length=10)
@@ -54,18 +34,6 @@ class UserToOrg(models.Model):
     user = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)
-    # set rules so that new rows in this table are automatically added to FollowersTo'Org'
-
-    #class 'Photo'(models.Model):
-    #caption = models.CASCADEharField(max_length=64, blank=True)
-    #blob = ImageField(
-    #    upload_to='BlobStorage',
-    #    storage=AppEngineBlobStorage(),
-    #    max_length=255,
-    #    blank=False,
-    #)
-    #serving_url = models.URLField()
-    # http://stackoverflow.com/questions/18747730/storing-images-in-db-using-django-models
 
 
 class Org(models.Model):
@@ -85,11 +53,11 @@ class PostToUser(models.Model):
 
 class PhotoToOrg(models.Model):
     org = models.ForeignKey('Org')
-    #photo = models.ForeignKey('Photo')
+    photo = models.ForeignKey('Photo')
 
 class PhotoToUser(models.Model):
     user = models.ForeignKey('Member')
-    #photo = models.ForeignKey('Photo')
+    photo = models.ForeignKey('Photo')
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -105,7 +73,7 @@ class Post(models.Model):
 
 class PhotoToPost(models.Model):
     post = models.ForeignKey('Post')
-    #photo = models.ForeignKey('Photo')
+    photo = models.ForeignKey('Photo')
 
 class EventToPost(models.Model):
     post = models.ForeignKey('Post')
@@ -120,7 +88,7 @@ class OrgToPost(models.Model):
     org = models.ForeignKey('Org')
 
 class PhotoToEvent(models.Model):
-    #photo = models.ForeignKey('Photo')
+    photo = models.ForeignKey('Photo')
     event = models.ForeignKey(Event)
 
 #class AUTH_USER_MODELtoEvent(models.Model): //rsvp
