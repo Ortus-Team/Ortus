@@ -31,17 +31,21 @@ class Member(models.Model):
     class_standing = models.CharField(max_length=10)
     join_date = models.DateTimeField(auto_now_add=True)
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Member.objects.create(user=instance)
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Member.objects.create(user=instance)
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, created, **kwargs):
-    instance.member.save()
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, created, **kwargs):
+        instance.member.save()
+
+class Photo(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='image')
+    image = models.ImageField(upload_to='photos', max_length=254)
 
 class FollowerToOrg(models.Model):
-    user = models.ForeignKey('Member');
+    follower = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     following_date = models.DateTimeField(auto_now_add=True)
 
@@ -53,7 +57,7 @@ class UserToOrg(models.Model):
     # set rules so that new rows in this table are automatically added to FollowersTo'Org'
 
     #class 'Photo'(models.Model):
-    #caption = models.CharField(max_length=64, blank=True)
+    #caption = models.CASCADEharField(max_length=64, blank=True)
     #blob = ImageField(
     #    upload_to='BlobStorage',
     #    storage=AppEngineBlobStorage(),
