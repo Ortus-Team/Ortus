@@ -77,7 +77,7 @@ class PhotoToPost(models.Model):
 
 class EventToPost(models.Model):
     post = models.ForeignKey('Post')
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey('Event')
 
 class UserToPost(models.Model):
     post = models.ForeignKey('Post')
@@ -89,7 +89,7 @@ class OrgToPost(models.Model):
 
 class PhotoToEvent(models.Model):
     photo = models.ForeignKey('Photo')
-    event = models.ForeignKey(Event)
+    event = models.ForeignKey('Event')
 
 #class AUTH_USER_MODELtoEvent(models.Model): //rsvp
 
@@ -99,6 +99,6 @@ class EventToOrg(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
 
 class OfficerToOrg(models.Model):
-    user = models.ForeignKey('Member');
+    officer = models.ForeignKey('Member');
     org = models.ForeignKey('Org');
     join_date = models.DateTimeField(auto_now_add=True)
