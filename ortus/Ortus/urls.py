@@ -19,7 +19,8 @@ from django.views.generic import TemplateView
 from main import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', include(admin.site.urls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
+    url(r'^auth/', include('rest_framework_social_oauth2.urls')),
     url(r'^', include('main.urls'))
 ]
