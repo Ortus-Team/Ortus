@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from main.models import User
-from main.serializers import UserSerializer
+from api.serializers import UserSerializer
 
 @csrf_exempt
 def member_list(request):

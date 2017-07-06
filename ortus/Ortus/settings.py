@@ -60,7 +60,12 @@ ROOT_URLCONF = 'Ortus.urls'
 
 # DJANGO REST FRAMEWORK SETTINGS
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated'
+    ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.permissions.IsAdminUser',
+        'rest_framework.authentication.TokenAuthentication',
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
         'rest_framework_social_oauth2.authentication.SocialAuthentication',
         'social_core.backends.facebook.FacebookAppOAuth2',
@@ -159,7 +164,7 @@ SOCIAL_AUTH_FACEBOOK_KEY = '110760716216901'                                    
 SOCIAL_AUTH_FACEBOOK_SECRET = '34130c24a27d19a9f8d06ac2e9d18fa4'
 
 # Define SOCIAL_AUTH_FACEBOOK_SCOPE to get extra permissions from facebook. Email is not sent by default, to get it, you must request the email permission:
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'public_profile', 'user_friends']
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
     'fields': 'id, name, email'
 }
