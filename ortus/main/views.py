@@ -4,6 +4,9 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from main.models import User
 from api.serializers import UserSerializer
+from api.serializers import SignUpSerializer
+from rest_framework import generics
+from main.permissions import IsAuthenticatedOrCreate
 
 @csrf_exempt
 def member_list(request):
@@ -44,3 +47,8 @@ def member_detail(request, pk):
 	elif request.method == 'DELETE':
 		user.delete()
 		return HttpResponse(status=204)
+
+class SignUp(generics.CreateAPIView):
+	queryset = User.objects.all()
+	serializer_class = SignUpSerializer
+	permission_classes = (IsAuthenticatedOrCreate,)
