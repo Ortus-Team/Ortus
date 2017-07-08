@@ -6,7 +6,7 @@ from main.models import User
 from api.serializers import UserSerializer
 from api.serializers import SignUpSerializer
 from rest_framework import generics
-from main.permissions import IsAuthenticatedOrCreate
+from api.permissions import IsAuthenticatedOrCreate
 
 @csrf_exempt
 def member_list(request):
