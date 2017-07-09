@@ -1,0 +1,6 @@
+.idea/
+env/
+ortus/Ortus/__pycache__/
+ortus/api/__pycache__/
+ortus/main/__pycache__/
+ortus/main/migrations/__pycache__/
