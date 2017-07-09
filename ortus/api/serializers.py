@@ -41,7 +41,7 @@ class EventSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
 	name = serializers.CharField(source='post.name')
-	created_date = serializers.DateTimeField(source='post.event_date')
+	created_date = serializers.DateTimeField(source='post.created_date')
 	description = serializers.CharField(source='post.description')
 
 	class Meta:

@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^auth/', include('rest_framework_social_oauth2.urls')),
     url(r'^sign_up/$', views.SignUp.as_view(), name="sign_up"),
+    # url(r'^social_sign_up/$', views.SocialSignUp.as_view(), name="social_sign_up"),
     url(r'^', include('main.urls'))
 ]

@@ -7,6 +7,13 @@ from api.serializers import UserSerializer
 from api.serializers import SignUpSerializer
 from rest_framework import generics
 from api.permissions import IsAuthenticatedOrCreate
+# from rest_framework import status
+# from rest_framework.response import Response
+# # from social.apps.django_app.utils import load_strategy
+# # from social.apps.django_app.utils import load_backend
+# import social.apps.django_app
+# from social.backends.oauth import BaseOAuth1, BaseOAuth2
+# from social.exceptions import AuthAlreadyAssociated
 
 @csrf_exempt
 def member_list(request):
@@ -52,3 +59,4 @@ class SignUp(generics.CreateAPIView):
 	queryset = User.objects.all()
 	serializer_class = SignUpSerializer
 	permission_classes = (IsAuthenticatedOrCreate,)
+
