@@ -1,1 +1,1 @@
-web: cd ortus && node server.js && gunicorn gettingstarted.wsgi --log-file -
+web: cd ortus && node server.js && gunicorn Ortus.wsgi --log-file -
