@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -174,4 +176,20 @@ SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
 
 
 #curl -X POST -d "grant_type=convert_token&client_id=VtdjdvEGVnJIZeUQbUen60HTqx44zakmoRAA9uzT&backend=facebook&token=EAABkvH0lKkUBAETpZCWtg0ZAB88glyG0SUrdcEFwaSFZAL732SuTeToY7IcWBHASzb5hYjcA2CvOm5LLtmFsmRillfBQPZCgKAhEyfY6UZB0l3W5yMBvXibTZAEOwGBtZCZC88wZAG1SSdHW8wm4gwQL5xhNKmVdxAB8gKiTriGHwpnq6UKnKZBnkCcLh2boXDpPIZD" http://localhost:8000/auth/convert-token
-# 
+#
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
