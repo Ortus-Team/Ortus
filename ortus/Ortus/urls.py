@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 from api import viewsets
+from api import urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -24,5 +25,5 @@ urlpatterns = [
     url(r'^auth/', include('rest_framework_social_oauth2.urls')),
     url(r'^sign_up/$', viewsets.SignUp.as_view(), name="sign_up"),
     # url(r'^social_sign_up/$', views.SocialSignUp.as_view(), name="social_sign_up"),
-    url(r'^', include('main.urls'))
+    url(r'^', include('api.urls'))
 ]

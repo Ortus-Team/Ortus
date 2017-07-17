@@ -1,10 +1,9 @@
 from django.conf.urls import include, url
 from rest_framework import routers
-from viewsets import UserViewSet
 
 # Routers define the URL mapping to views
 router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
+# router.register(r'users', UserViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls, namespace='rest_api')),
