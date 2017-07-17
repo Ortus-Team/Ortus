@@ -16,13 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
-from main import views
+from api import viewsets
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', TemplateView.as_view(template_name="index.html")),
     url(r'^auth/', include('rest_framework_social_oauth2.urls')),
-    url(r'^sign_up/$', views.SignUp.as_view(), name="sign_up"),
+    url(r'^sign_up/$', viewsets.SignUp.as_view(), name="sign_up"),
     # url(r'^social_sign_up/$', views.SocialSignUp.as_view(), name="social_sign_up"),
     url(r'^', include('main.urls'))
 ]
