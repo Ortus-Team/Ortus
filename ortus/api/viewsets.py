@@ -122,6 +122,149 @@ def photo_detail(request, pk):
 			return JsonResponse(serializer.data)
 		return JsonResponse(serializer.errors, status=404)	
 
+@csrf_exempt
+def follower_org_list(request, pk):
+	try:
+		user = User.objects.get(pk=pk)
+	except User.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		org_list = FollowerToOrg.objects.filter(follower__exact=user)
+		serializer = OrgSerializer(org_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def user_org_list(request, pk):
+	try:
+		user = User.objects.get(pk=pk)
+	except User.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		org_list = UserToOrg.objects.filter(user__exact=user)
+		serializer = OrgSerializer(org_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def post_org_list(request, pk):
+	try:
+		org = Org.objects.get(pk=pk)
+	except Org.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		post_list = PostToOrg.objects.filter(org__exact=org)
+		serializer = PostSerializer(post_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def photo_org_list(request, pk):
+	try:
+		org = Org.objects.get(pk=pk)
+	except Org.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		photo_list = PhotoToOrg.objects.filter(org__exact=org)
+		serializer = PhotoSerializer(photo_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def post_user_list(request, pk):
+	try:
+		user = User.objects.get(pk=pk)
+	except User.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		post_list = PostToUser.objects.filter(user__exact=user)
+		serializer = PostSerializer(post_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def photo_user_list(request, pk):
+	try:
+		user = User.objects.get(pk=pk)
+	except User.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		photo_list = PhotoToUser.objects.filter(user__exact=user)
+		serializer = PhotoSerializer(photo_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def photo_post_list(request, pk):
+	try:
+		post = Post.objects.get(pk=pk)
+	except Post.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		photo_list = PhototoPost.objects.filter(post__exact=post)
+		serializer = PhotoSerializer(photo_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def event_post_list(request, pk):
+	try:
+		event = Event.objects.get(pk=pk)
+	except Event.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		post_list = EventToPost.objects.filter(event__exact=event)
+		serializer = PostSerializer(post_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def user_post_list(request, pk):
+	try:
+		user = User.objects.get(pk=pk)
+	except User.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		post_list = UserToPost.objects.filter(user__exact=user)
+		serializer = PostSerializer(post_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def org_post_list(request, pk):
+	try:
+		org = Org.objects.get(pk=pk)
+	except Org.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		post_list = OrgToPost.objects.filter(org__exact=org)
+		serializer = PostSerializer(post_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def photo_event_list(request, pk):
+	try:
+		event = Event.objects.get(pk=pk)
+	except Event.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		photo_list = PhotoToEvent.objects.filter(event__exact=event)
+		serializer = PhotoSerializer(photo_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def event_org_list(request, pk):
+	try:
+		org = Org.objects.get(pk=pk)
+	except Org.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		event_list = EventToOrg.objects.filter(org__exact=org)
+		serializer = EventSerializer(event_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def officer_org_list(request, pk):
+	try:
+		org = Org.objects.get(pk=pk)
+	except Org.DoesNotExist:
+		return HttpResponse(status=404)
+	if request.method == 'GET':
+		officer_list = OfficerToOrg.objects.filter(org__exact=org)
+		serializer = UserSerializer(officer_list, many=True)
+		return JsonResponse(serializer.data, safe=False)
+
 class SignUp(generics.CreateAPIView):
 	queryset = User.objects.all()
 	serializer_class = SignUpSerializer
