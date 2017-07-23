@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
+import { Home } from './modules/Home/Home'
+
 var OrtusMain = React.createClass({
 	render: function() {
 
@@ -59,7 +61,26 @@ var OrtusMember = React.createClass({
 		)
 	}
 })
-ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
 
+class Main extends React.Component {
+
+	render() {
+
+		return (
+			<div>
+				<h1>Ortus Member</h1>
+				<Home />
+				<ul>
+					<li>members should be here....</li>
+				</ul> 
+			</div>
+		)
+	}
+}
+
+ReactDom.render(<Main url='http://127.0.0.1:8000/members' pollInterval={1000} />, document.getElementById('react-app'))
+
+{/*ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
+*/}
 {/*ReactDom.render(<OrtusMain />, document.getElementById('react-app'))*/}
 
