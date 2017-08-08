@@ -6,6 +6,7 @@ import { DynamicContent } from './components/DynamicContent/DynamicContent';
 import { UpcomingEvents } from './components/UpcomingEvents/UpcomingEvents';
 import { FeaturedGroups } from './components/FeaturedGroups/FeaturedGroups';
 import { GetInvolved } from './components/GetInvolved/GetInvolved';
+import { styles } from './Home.scss';
 
 /*
 Home
@@ -31,7 +32,7 @@ export class Home extends React.Component {
           <UpcomingEvents />
           <FeaturedGroups />
           <GetInvolved />
-          <h1 style={h1Style}>this is an h1</h1>
+          <h1 style={h1Style}>Home Page!!</h1>
         </div>
     );
   }

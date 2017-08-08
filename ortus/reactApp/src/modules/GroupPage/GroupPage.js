@@ -57,7 +57,7 @@ export class GroupPage extends React.Component {
   render() {
     return (
         <div id={styles.thing}>
-
+          <h1>This is the Group Page!!!!</h1>
 
         </div>
     );
