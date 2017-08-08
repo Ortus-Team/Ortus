@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+import { styles } from './Navbar.scss';
+
 /*
 NavBar (On all pages)
   Logo (link: Home)
@@ -18,30 +20,31 @@ export class Navbar extends React.Component {
     }
     
     return (
-        <div styles={navbar}>
-            {/* Logo */}
-            {/*<div id={styles.logo} */}
-            <div styles={navbar}>
-                <a href="#">Logo</a>
-            </div>
+        <div className='navbar'>
+            <div className='navbarContainer'>
+                {/* Logo */}
+                {/*<div id={styles.logo} */}
+                <div styles={navbar}>
+                    <a href="#">Logo</a>
+                </div>
 
-            {/* Search id={styles.search} */}
-            <div>
-                <a href="#">Search</a>
-            </div>
+                {/* Search id={styles.search} */}
+                <div>
+                    <a href="#">Search</a>
+                </div>
 
-            {/* Main links id={styles.nav} */}
-            <div>
-                <a href="#">Student Group Directory</a>
-                <a href="#">Events</a>
-                <a href="#">Login</a>
-            </div>
+                {/* Main links id={styles.nav} */}
+                <div>
+                    <a href="#">Student Group Directory</a>
+                    <a href="#">Events</a>
+                    <a href="#">Login</a>
+                </div>
 
-            {/* Translate id={styles.translate} */}
-            <div>
-                <a href="#">Translate</a>
+                {/* Translate id={styles.translate} */}
+                <div>
+                    <a href="#">Translate</a>
+                </div>
             </div>
-
         </div>
     );
   }

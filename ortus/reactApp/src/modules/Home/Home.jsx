@@ -20,19 +20,14 @@ Home
 
 export class Home extends React.Component {
   render() {
-    const h1Style = {
-      backgroundColor: 'red'
-    }
-    
     return (
-        <div>
-          {/*<Navbar />*/}
+        <div className='wrapper'>
           <Navbar />
           <DynamicContent />
           <UpcomingEvents />
           <FeaturedGroups />
           <GetInvolved />
-          <h1 style={h1Style}>Home Page!!</h1>
+          <h1>Home Page!!</h1>
         </div>
     );
   }

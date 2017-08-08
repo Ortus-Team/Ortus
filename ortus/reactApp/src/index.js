@@ -7,7 +7,7 @@ import ReactDom from 'react-dom';
 import App from './App';
 import Routes from './Routes'; 
 import { Router, browserHistory } from 'react-router';
-
+import styles from './main.scss';
 
 //ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
 

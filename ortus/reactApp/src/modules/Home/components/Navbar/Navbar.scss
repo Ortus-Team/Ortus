@@ -1,1 +1,15 @@
-@import '~globalStyles';
+.navbar {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  z-index: 999;
+  
+
+  .navbarContainer {
+    height: 50px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+}
