@@ -1,5 +1,19 @@
-import React from 'react'
+/* import React from 'react'
 import ReactDom from 'react-dom'
+
+*/
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './App';
+import Routes from './Routes'; 
+import { Router, browserHistory } from 'react-router';
+
+
+//ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
+
+//ReactDom.render(<Home />, document.getElementById('react-app'));
+
+ReactDom.render(<Home />, document.getElementById('react-app'))
 
 import { Home } from './modules/Home/Home'
 
@@ -78,9 +92,9 @@ class Main extends React.Component {
 	}
 }
 
-ReactDom.render(<Main url='http://127.0.0.1:8000/members' pollInterval={1000} />, document.getElementById('react-app'))
+// ReactDom.render(<Main url='http://127.0.0.1:8000/members' pollInterval={1000} />, document.getElementById('react-app'))
 
-{/*ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
-*/}
-{/*ReactDom.render(<OrtusMain />, document.getElementById('react-app'))*/}
+/*ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
+*/
+/*ReactDom.render(<OrtusMain />, document.getElementById('react-app'))*/
 
