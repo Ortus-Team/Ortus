@@ -34,7 +34,7 @@ export class Navbar extends React.Component {
                 </div>
 
                 {/* Main links id={styles.nav} */}
-                <div>
+                <div className='mainLinks'>
                     <a href="#">Student Group Directory</a>
                     <a href="#">Events</a>
                     <a href="#">Login</a>

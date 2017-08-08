@@ -1,15 +1,30 @@
+$theme-color-white: #fff;
+
 .navbar {
   position: relative;
   height: 50px;
   width: 100%;
   z-index: 999;
-  
 
   .navbarContainer {
     height: 50px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: $theme-color-white;
     padding: 20px;
     margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      text-decoration: none;
+    }
+
+    .mainLinks {
+      a {
+        margin: 0 10px;
+      }
+    }
   }
 }
