@@ -13,15 +13,13 @@ NavBar (On all pages)
 
 export class GetInvolved extends React.Component {
   render() {
-    const dc = {
-        color: 'red'
-    }
-
     return (
-        <div styles={dc}>
-            
-            <h1 styles={dc}>Get Involved</h1>
+      <div>
+        <h1>Get Involved</h1>
+        <div className="getContent">
+
         </div>
+      </div>
     );
   }
 };

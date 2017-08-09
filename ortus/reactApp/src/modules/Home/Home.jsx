@@ -20,9 +20,9 @@ Home
 export class Home extends React.Component {
   render() {
     return (
-        <div className='wrapper'>
+        <div className='homeWrapper'>
           <Navbar />
-          <div className='contentWrapper'>
+          <div className='homeContent'>
             <DynamicContent />
             <UpcomingEvents />
             <FeaturedGroups />

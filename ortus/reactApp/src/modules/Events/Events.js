@@ -1,6 +1,8 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
+import { Navbar } from './components/Navbar/Navbar';
+//import { EventsDirectory } from './components/EventsDirectory/EventsDirectory';
+import { styles } from './Events.scss';
 /*
 Events
   NavBar
@@ -14,10 +16,12 @@ Events
 export class Events extends React.Component {
   render() {
     return (
-        <div id={styles.thing}>
-
+      <div className='eventsWrapper'>
+        <Navbar />
+        <div className='eventsContent'>
 
         </div>
+      </div>
     );
   }
 };

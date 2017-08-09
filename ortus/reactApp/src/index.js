@@ -1,25 +1,27 @@
-/* import React from 'react'
-import ReactDom from 'react-dom'
-
-*/
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from './App';
+
 import Routes from './Routes'; 
 import { Router, browserHistory } from 'react-router';
 import styles from './main.scss';
+
+import { App } from './App';
+import { Home } from './modules/Home/Home'
+import { GroupPage } from './modules/GroupPage/GroupPage'
+import { Events } from './modules/Events/Events'
+import { EventPage } from './modules/EventPage/EventPage'
+import { Directory } from './modules/Directory/Directory'
+import { Dashboard } from './modules/Dashboard/Dashboard'
 
 //ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
 
 //ReactDom.render(<Home />, document.getElementById('react-app'));
 
-ReactDom.render(<Home />, document.getElementById('react-app'))
+ReactDom.render(<GroupPage />, document.getElementById('react-app'))
 
-import { Home } from './modules/Home/Home'
-
+// rando
 var OrtusMain = React.createClass({
 	render: function() {
-
 		var ortusAppStyle = {
 			backgroundColor: 'ffffff',
 			color: '#333',
@@ -30,12 +32,11 @@ var OrtusMain = React.createClass({
 			fontSize: 66,
 			fontWeight: 'bold'
 		}
-
 		return (<div style={ortusAppStyle}><p>Ortus project uses React and DRF!</p></div>);
 	}
 });
 
-
+// member list
 var OrtusMember = React.createClass({
 	loadMemberFromServer: function() {
 		$.ajax({
@@ -76,10 +77,9 @@ var OrtusMember = React.createClass({
 	}
 })
 
+// practice
 class Main extends React.Component {
-
 	render() {
-
 		return (
 			<div>
 				<h1>Ortus Member</h1>
@@ -94,7 +94,7 @@ class Main extends React.Component {
 
 // ReactDom.render(<Main url='http://127.0.0.1:8000/members' pollInterval={1000} />, document.getElementById('react-app'))
 
-/*ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
-*/
-/*ReactDom.render(<OrtusMain />, document.getElementById('react-app'))*/
+// ReactDom.render(<OrtusMember url='http://127.0.0.1:8000/members/' pollInterval={1000} />, document.getElementById('react-app'))
+
+// ReactDom.render(<OrtusMain />, document.getElementById('react-app'))
 

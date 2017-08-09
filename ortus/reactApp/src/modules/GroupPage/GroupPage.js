@@ -1,6 +1,8 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
+import { Navbar } from './components/Navbar/Navbar';
+import { GroupHeader } from './components/GroupHeader/GroupHeader';
+import { styles } from './GroupPage.scss';
 /*
 Student Group Page
   NavBar
@@ -56,10 +58,12 @@ Student Group Page
 export class GroupPage extends React.Component {
   render() {
     return (
-        <div id={styles.thing}>
-          <h1>This is the Group Page!!!!</h1>
-
+      <div className='groupPageWrapper'>
+        <Navbar />
+        <div className='groupPageContent'>
+          <GroupHeader />
         </div>
+      </div>
     );
   }
 };
