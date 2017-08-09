@@ -1,6 +1,7 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
+import { EventItem } from './components/EventItem/EventItem';
+import { styles } from './UpcomingEvents.scss';
 /*
 NavBar (On all pages)
   Logo (link: Home)
@@ -13,14 +14,15 @@ NavBar (On all pages)
 
 export class UpcomingEvents extends React.Component {
   render() {
-    const dc = {
-        color: 'red'
-    }
-
     return (
-        <div styles={dc}>
-            
-            <h1 styles={dc}>Upcoming Events</h1>
+        <div>
+            <h1>Upcoming Events</h1>
+            <div className="upcomingEvents">
+              <EventItem />
+              <EventItem />
+              <EventItem />
+              <EventItem />
+            </div>
         </div>
     );
   }

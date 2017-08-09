@@ -1,5 +1,7 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
+
+import { StudentGroupItem } from './components/StudentGroupItem/StudentGroupItem';
+import { styles } from './FeaturedGroups.scss';
 
 /*
 NavBar (On all pages)
@@ -13,14 +15,14 @@ NavBar (On all pages)
 
 export class FeaturedGroups extends React.Component {
   render() {
-    const dc = {
-        color: 'red'
-    }
-
     return (
-        <div styles={dc}>
-            
-            <h1 styles={dc}>Featured Groups</h1>
+        <div>
+            <h1>Featured Groups</h1>
+            <div className="featuredGroups">
+              <StudentGroupItem />
+              <StudentGroupItem />
+              <StudentGroupItem />
+            </div>
         </div>
     );
   }

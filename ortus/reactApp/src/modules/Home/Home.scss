@@ -1,7 +1,14 @@
 h1 {
-    font-family: Arial;
+    font-weight: 100;
 }
 
 .wrapper {
-    background-color: green;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    .contentWrapper {
+        padding: 120px 0;
+        margin: 0 auto;
+        width: 960px;
+    }
 }

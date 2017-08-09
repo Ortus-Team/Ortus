@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
 import { Navbar } from './components/Navbar/Navbar';
 import { DynamicContent } from './components/DynamicContent/DynamicContent';
@@ -23,11 +22,12 @@ export class Home extends React.Component {
     return (
         <div className='wrapper'>
           <Navbar />
-          <DynamicContent />
-          <UpcomingEvents />
-          <FeaturedGroups />
-          <GetInvolved />
-          <h1>Home Page!!</h1>
+          <div className='contentWrapper'>
+            <DynamicContent />
+            <UpcomingEvents />
+            <FeaturedGroups />
+            <GetInvolved />
+          </div>
         </div>
     );
   }

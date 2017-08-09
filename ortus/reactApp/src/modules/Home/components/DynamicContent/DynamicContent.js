@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+import { styles } from './DynamicContent.scss';
+
 /*
 NavBar (On all pages)
   Logo (link: Home)
@@ -18,9 +20,10 @@ export class DynamicContent extends React.Component {
     }
 
     return (
-        <div styles={dc}>
-            
-            <h1 styles={dc}>Dynamic Content</h1>
+        <div className='dynamicWrapper'>
+          <div className='dynamicContent'>
+            <h1>Dynamic Content</h1>
+          </div>
         </div>
     );
   }
