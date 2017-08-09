@@ -6,12 +6,14 @@ import { Router, browserHistory } from 'react-router';
 import styles from './main.scss';
 
 import { App } from './App';
-import { Home } from './modules/Home/Home'
-import { GroupPage } from './modules/GroupPage/GroupPage'
-import { Events } from './modules/Events/Events'
 import { EventPage } from './modules/EventPage/EventPage'
 import { Directory } from './modules/Directory/Directory'
 import { Dashboard } from './modules/Dashboard/Dashboard'
+
+import { Home } from './modules/Home/Home'
+import { GroupPage } from './modules/GroupPage/GroupPage'
+import { Events } from './modules/Events/Events'
+
 
 //ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
 
