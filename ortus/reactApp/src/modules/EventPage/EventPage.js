@@ -1,5 +1,9 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
+
+import { Navbar } from './components/Navbar/Navbar';
+import { EventContent } from './components/EventContent/EventContent';
+import { UpcomingEvents } from './components/UpcomingEvents/UpcomingEvents';
+import { styles } from './EventPage.scss';
 
 /*
 Event Page
@@ -23,10 +27,13 @@ Event Page
 export class EventPage extends React.Component {
   render() {
     return (
-        <div id={styles.thing}>
-
-
+      <div className='eventPageWrapper'>
+        <Navbar />
+        <div className='eventPageContent'>
+          <EventContent />
+          <UpcomingEvents />
         </div>
+      </div>
     );
   }
 };

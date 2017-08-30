@@ -15,14 +15,10 @@ NavBar (On all pages)
 
 export class DynamicContent extends React.Component {
   render() {
-    const dc = {
-        color: 'red'
-    }
-
     return (
         <div className='dynamicWrapper'>
           <div className='dynamicContent'>
-            <h1>Dynamic Content</h1>
+            <h1>Dynamic content goes here!</h1>
           </div>
         </div>
     );

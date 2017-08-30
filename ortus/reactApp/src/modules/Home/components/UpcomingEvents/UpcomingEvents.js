@@ -1,6 +1,7 @@
-var React = require('react');
+import React from 'react';
 
 import { EventItem } from './components/EventItem/EventItem';
+// import { EventItem } from 'components/EventItem/EventItem';
 import { styles } from './UpcomingEvents.scss';
 /*
 NavBar (On all pages)
@@ -15,9 +16,10 @@ NavBar (On all pages)
 export class UpcomingEvents extends React.Component {
   render() {
     return (
-        <div>
+        <div className="sectionWrapper">
             <h1>Upcoming Events</h1>
             <div className="upcomingEvents">
+              <EventItem />
               <EventItem />
               <EventItem />
               <EventItem />

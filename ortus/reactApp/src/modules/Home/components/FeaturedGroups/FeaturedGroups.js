@@ -16,9 +16,10 @@ NavBar (On all pages)
 export class FeaturedGroups extends React.Component {
   render() {
     return (
-        <div>
+        <div className="sectionWrapper">
             <h1>Featured Groups</h1>
             <div className="featuredGroups">
+              <StudentGroupItem />
               <StudentGroupItem />
               <StudentGroupItem />
               <StudentGroupItem />

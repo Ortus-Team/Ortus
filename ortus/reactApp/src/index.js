@@ -7,19 +7,18 @@ import styles from './main.scss';
 
 import { App } from './App';
 import { EventPage } from './modules/EventPage/EventPage'
-import { Directory } from './modules/Directory/Directory'
+import { GroupsDirectory } from './modules/GroupsDirectory/GroupsDirectory'
+import { EventsDirectory } from './modules/EventsDirectory/EventsDirectory'
 import { Dashboard } from './modules/Dashboard/Dashboard'
 
 import { Home } from './modules/Home/Home'
 import { GroupPage } from './modules/GroupPage/GroupPage'
-import { Events } from './modules/Events/Events'
+import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
 
+ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
 
-//ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
-
-//ReactDom.render(<Home />, document.getElementById('react-app'));
-
-ReactDom.render(<GroupPage />, document.getElementById('react-app'))
+// ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
+// ReactDom.render(<GroupPage />, document.getElementById('react-app'))
 
 // rando
 var OrtusMain = React.createClass({

@@ -1,4 +1,6 @@
 $theme-color-white: #fff;
+$theme-color-purple: #4B2E83;
+$theme-color-blue: #34D9E9;
 $navbar-height: 40px;
 
 .navbar {
@@ -23,9 +25,33 @@ $navbar-height: 40px;
       text-decoration: none;
     }
 
+    .logo {
+      font-size: 36px;
+      color: $theme-color-purple;
+    }
+
     .mainLinks {
       a {
-        margin: 0 10px;
+        margin-left: 20px;
+        color: #555555;
+      }
+    }
+
+    .account {
+      a {
+        margin-left: 20px;
+        color: #555555;
+      }
+
+      .signup {
+        background-color: $theme-color-blue;
+        border: none;
+        color: $theme-color-white;
+        padding: 12px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 3px;
       }
     }
   }
