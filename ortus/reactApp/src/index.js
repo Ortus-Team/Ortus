@@ -6,16 +6,22 @@ import { Router, browserHistory } from 'react-router';
 import styles from './main.scss';
 
 import { App } from './App';
+
+// mostly done; needs css refining
+import { Home } from './modules/Home/Home'
 import { EventPage } from './modules/EventPage/EventPage'
 import { GroupsDirectory } from './modules/GroupsDirectory/GroupsDirectory'
 import { EventsDirectory } from './modules/EventsDirectory/EventsDirectory'
-import { Dashboard } from './modules/Dashboard/Dashboard'
 
-import { Home } from './modules/Home/Home'
+// in progress
 import { GroupPage } from './modules/GroupPage/GroupPage'
 import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
+import { Dashboard } from './modules/Dashboard/Dashboard'
 
-ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
+ReactDom.render(<Home />, document.getElementById('react-app'));
+
+// not started
+
 
 // ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
 // ReactDom.render(<GroupPage />, document.getElementById('react-app'))
