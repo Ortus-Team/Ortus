@@ -3,6 +3,11 @@ var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+/* const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+}); */
+
 var ip="localhost";
 module.exports = {
   context: __dirname,
@@ -30,21 +35,14 @@ module.exports = {
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
     }),
-    new ExtractTextPlugin({ filename: 'bundle.css', disable: false, allChunks: true }),
+    new ExtractTextPlugin('[name].css')
   ],
 
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
       // { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader']},
-      {
-        test: /\.sass$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallbackLoader: "style-loader", // Will inject the style tag if plugin fails
-          loader: "css-loader!sass-loader",
-        }),
-      },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'sass-loader') },
     ],
   },
 
