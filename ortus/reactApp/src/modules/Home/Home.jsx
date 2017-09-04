@@ -21,7 +21,6 @@ export class Home extends React.Component {
   render() {
     return (
       <div className='homeWrapper'>
-      {/* <div className={styles.homeWrapper}> */}
         <Navbar />
         <div className='homeHeader'>
           <DynamicContent />

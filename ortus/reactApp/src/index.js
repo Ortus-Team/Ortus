@@ -18,7 +18,7 @@ import { GroupPage } from './modules/GroupPage/GroupPage'
 import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
 import { Dashboard } from './modules/Dashboard/Dashboard'
 
-ReactDom.render(<Home />, document.getElementById('react-app'));
+ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
 
 // not started
 
