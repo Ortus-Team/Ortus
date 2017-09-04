@@ -35,14 +35,29 @@ module.exports = {
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
     }),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('app.css')
   ],
 
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
-      // { test: /\.scss$/, loaders: ['style-loader', 'css-loader', 'sass-loader']},
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader', 'sass-loader') },
+      // { test: /\.(s)*css$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'], options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' } },
+
+      
+      { test: /\.(s)*css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract(
+          {
+            loader: 'css-loader',
+            options: {
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              modules: true,
+              camelCase: true,
+            },
+          }, 
+          {
+            loader: 'sass-loader',
+          },
+        ),
+      }, 
     ],
   },
 

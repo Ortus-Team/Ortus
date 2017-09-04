@@ -3,7 +3,7 @@ var React = require('react');
 import { Navbar } from './components/Navbar/Navbar';
 import { GroupHeader } from './components/GroupHeader/GroupHeader';
 import { GroupHeader2 } from './components/GroupHeader2/GroupHeader2';
-import styles from './GroupPage2.scss';
+import styles from './GroupPage2.scss'
 /*
 Student Group Page
   NavBar
@@ -62,7 +62,7 @@ export class GroupPage2 extends React.Component {
       <div className={styles.groupPage2Wrapper}>
         <Navbar />
         {/* <GroupHeader2 /> */}
-        <div className='groupPage2Content'>
+        <div className={styles.groupPage2Content}>
           <GroupHeader2 />
         </div>
       </div>

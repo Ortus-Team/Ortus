@@ -1,6 +1,6 @@
 var React = require('react');
 
-import styles from './GroupHeader2.scss';
+import styles from './GroupHeader2.scss'
 /*
 Student Group Item (*S*)
   Logo
@@ -13,7 +13,7 @@ export class GroupHeader2 extends React.Component {
   render() {
     return (
         <div className={styles.groupHeader2}>
-            <div className="groupHeader2Wrapper">
+            <div className={styles.groupHeader2Wrapper}>
                 <div className="groupHeader2Content">
                     {/* Cover Image */}
                     <div className="groupHeader2Image">
