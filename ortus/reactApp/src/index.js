@@ -1,29 +1,29 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-
-import Routes from './Routes'; 
-import { Router, browserHistory } from 'react-router';
-import styles from './main.scss';
-
-import { App } from './App';
-
+import React from "react";
+import ReactDom from "react-dom";
+import {hashHistory, Route, Router} from "react-router";
 // mostly done; needs css refining
-import { Home } from './modules/Home/Home'
-import { EventPage } from './modules/EventPage/EventPage'
-import { GroupsDirectory } from './modules/GroupsDirectory/GroupsDirectory'
-import { EventsDirectory } from './modules/EventsDirectory/EventsDirectory'
-
+import {Home} from "./modules/Home/Home";
+import {EventPage} from "./modules/EventPage/EventPage";
+import {GroupsDirectory} from "./modules/GroupsDirectory/GroupsDirectory";
+import {EventsDirectory} from "./modules/EventsDirectory/EventsDirectory";
 // in progress
-import { GroupPage } from './modules/GroupPage/GroupPage'
-import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
-import { Dashboard } from './modules/Dashboard/Dashboard'
+import {GroupPage} from "./modules/GroupPage/GroupPage";
+import {GroupPage2} from "./modules/GroupPage2/GroupPage2";
 
-ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
+// ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
 
 // not started
 
-
-// ReactDom.render(<Router history={browserHistory} routes={routes} />, document.getElementById('react-app'));
+ReactDom.render(
+  <Router history={hashHistory}>
+    <Route path="/" component={Home}/>
+  	<Route path="/events" component={EventPage}/>
+    <Route path="/event-dir" component={EventsDirectory}/>
+  	<Route path="/groups" component={GroupPage}/>
+  	<Route path="/groups2" component={GroupPage2}/>
+  	<Route path="/groups-dir" component={GroupsDirectory}/>
+  </Router>,
+	document.getElementById('react-app'));
 // ReactDom.render(<GroupPage />, document.getElementById('react-app'))
 
 // rando
