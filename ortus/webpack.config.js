@@ -44,20 +44,10 @@ module.exports = {
       // { test: /\.(s)*css$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'], options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' } },
 
       
-      { test: /\.(s)*css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract(
-          {
-            loader: 'css-loader',
-            options: {
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              modules: true,
-              camelCase: true,
-            },
-          }, 
-          {
-            loader: 'sass-loader',
-          },
-        ),
-      }, 
+    {
+        test: /\.scss$/,
+        loaders: [ 'style', 'css', 'sass' ]
+    }
     ],
   },
 
