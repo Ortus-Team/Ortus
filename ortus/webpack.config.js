@@ -1,12 +1,8 @@
 var path = require("path")
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+// var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-/* const extractSass = new ExtractTextPlugin({
-    filename: "[name].[contenthash].css",
-    disable: process.env.NODE_ENV === "development"
-}); */
 
 var ip="localhost";
 module.exports = {
@@ -35,16 +31,16 @@ module.exports = {
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
     }),
-    new ExtractTextPlugin('app.css')
+    // new ExtractTextPlugin('app.css'),
   ],
 
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
-      // { test: /\.(s)*css$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'], options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' } },
+      { test: /\.(s)*css$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'] },
 
       
-      { test: /\.(s)*css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract(
+      /* { test: /\.(s)*css$/, exclude: /node_modules/, loader: ExtractTextPlugin.extract(
           {
             loader: 'css-loader',
             options: {
@@ -57,7 +53,7 @@ module.exports = {
             loader: 'sass-loader',
           },
         ),
-      }, 
+      }, */
     ],
   },
 

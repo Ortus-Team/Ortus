@@ -7,18 +7,25 @@ import styles from './main.scss';
 
 import { App } from './App';
 
+// not using anymore
+import { GroupPage } from './modules/GroupPage/GroupPage'
+
 // mostly done; needs css refining
 import { Home } from './modules/Home/Home'
 import { EventPage } from './modules/EventPage/EventPage'
 import { GroupsDirectory } from './modules/GroupsDirectory/GroupsDirectory'
 import { EventsDirectory } from './modules/EventsDirectory/EventsDirectory'
+import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
+import { HomeLogin } from './modules/HomeLogin/HomeLogin'
+
 
 // in progress
-import { GroupPage } from './modules/GroupPage/GroupPage'
-import { GroupPage2 } from './modules/GroupPage2/GroupPage2'
 import { Dashboard } from './modules/Dashboard/Dashboard'
+import { HomeRegister } from './modules/HomeRegister/HomeRegister'
 
-ReactDom.render(<GroupPage2 />, document.getElementById('react-app'));
+
+// *** rendered at 127.0.0.1:8000 ***
+ReactDom.render(<HomeRegister />, document.getElementById('react-app'));
 
 // not started
 

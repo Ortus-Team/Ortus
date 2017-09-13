@@ -12,8 +12,8 @@ Student Group Item (*S*)
 export class GroupHeader2 extends React.Component {
   render() {
     return (
-        <div className={styles.groupHeader2}>
-            <div className={styles.groupHeader2Wrapper}>
+        <div className='groupHeader2'>
+            <div className='groupHeader2Wrapper'>
                 <div className="groupHeader2Content">
                     {/* Cover Image */}
                     <div className="groupHeader2Image">
