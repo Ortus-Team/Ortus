@@ -7,3 +7,4 @@ ortus/main/migrations/__pycache__/
 ortus/webpack-stats.json
 env3/
 *.pyc
+node_modules/
