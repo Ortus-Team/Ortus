@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/yujincho/Desktop/ortus_/Ortus/ortus-env"
+set -gx VIRTUAL_ENV "/Users/yujincho/Desktop/test_1/Ortus/ortus-env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/yujincho/Desktop/ortus_/Ortus/ortus-env"
+VIRTUAL_ENV="/Users/yujincho/Desktop/test_1/Ortus/ortus-env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

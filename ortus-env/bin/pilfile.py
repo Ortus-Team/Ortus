@@ -1,4 +1,4 @@
-#!/Users/yujincho/Desktop/ortus_/Ortus/ortus-env/bin/python3
+#!/Users/yujincho/Desktop/test_1/Ortus/ortus-env/bin/python3
 #
 # The Python Imaging Library.
 # $Id$

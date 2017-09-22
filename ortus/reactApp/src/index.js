@@ -22,6 +22,8 @@ import { HomeLogin } from './modules/HomeLogin/HomeLogin'
 // in progress
 import { Dashboard } from './modules/Dashboard/Dashboard'
 import { HomeRegister } from './modules/HomeRegister/HomeRegister'
+// edit event page
+// logged in pages
 
 
 // *** rendered at 127.0.0.1:8000 ***

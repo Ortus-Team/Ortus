@@ -1,4 +1,4 @@
-#!/Users/yujincho/Desktop/ortus_/Ortus/ortus-env/bin/python3
+#!/Users/yujincho/Desktop/test_1/Ortus/ortus-env/bin/python3
 from django.core import management
 
 if __name__ == "__main__":
