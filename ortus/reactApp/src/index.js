@@ -7,11 +7,8 @@ import styles from './main.scss';
 
 import { App } from './App';
 
-// not using anymore
-import { GroupPage } from './modules/GroupPage/GroupPage'
 
 // mostly done; needs css refining
-import { Home } from './modules/Home/Home'
 import { EventPage } from './modules/EventPage/EventPage'
 import { GroupsDirectory } from './modules/GroupsDirectory/GroupsDirectory'
 import { EventsDirectory } from './modules/EventsDirectory/EventsDirectory'
@@ -21,13 +18,20 @@ import { HomeLogin } from './modules/HomeLogin/HomeLogin'
 
 // in progress
 import { Dashboard } from './modules/Dashboard/Dashboard'
-import { HomeRegister } from './modules/HomeRegister/HomeRegister'
+
 // edit event page
 // logged in pages
 
 
+// deprecated
+import { HomeRegister } from './modules/HomeRegister/HomeRegister'
+import { Home } from './modules/Home/Home'
+import { GroupPage } from './modules/GroupPage/GroupPage'
+
+
+
 // *** rendered at 127.0.0.1:8000 ***
-ReactDom.render(<HomeRegister />, document.getElementById('react-app'));
+ReactDom.render(<HomeLogin />, document.getElementById('react-app'));
 
 // not started
 

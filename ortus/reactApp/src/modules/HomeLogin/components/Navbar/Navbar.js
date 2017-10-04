@@ -42,7 +42,7 @@ export class Navbar extends React.Component {
                 {/* Account */}
                 <div className='account'>
                     <a href="#">Log In</a>
-                    <a href="#" className='signup'>Sign up</a>
+                    <a className='signup' onClick={this.props.on}>Sign up</a>
                 </div>
 
                 {/* Translate
