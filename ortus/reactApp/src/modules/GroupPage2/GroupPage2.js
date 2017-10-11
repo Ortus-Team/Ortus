@@ -3,7 +3,13 @@ var React = require('react');
 import { Navbar } from './components/Navbar/Navbar';
 import { GroupHeader } from './components/GroupHeader/GroupHeader';
 import { GroupHeader2 } from './components/GroupHeader2/GroupHeader2';
-import styles from './GroupPage2.scss'
+import { GroupContent } from './components/GroupContent/GroupContent';
+import { GroupContentEvents } from './components/GroupContentEvents/GroupContentEvents';
+import { GroupContentOfficers } from './components/GroupContentOfficers/GroupContentOfficers';
+import { GroupContentGallery } from './components/GroupContentGallery/GroupContentGallery';
+
+
+import { styles } from './GroupPage2.scss'
 /*
 Student Group Page
   NavBar
@@ -59,11 +65,14 @@ Student Group Page
 export class GroupPage2 extends React.Component {
   render() {
     return (
-      <div className={styles.groupPage2Wrapper}>
+      <div className='groupPage2Wrapper'>
         <Navbar />
         {/* <GroupHeader2 /> */}
-        <div className={styles.groupPage2Content}>
+        <div className='groupPage2Content'>
           <GroupHeader2 />
+          <div className='groupPage2ContentWidth'>
+            <GroupContent />
+          </div>
         </div>
       </div>
     );

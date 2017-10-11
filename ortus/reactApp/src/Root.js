@@ -2,6 +2,7 @@ import React from "react";
 import {Provider} from "react-redux";
 import {hashHistory, Route, Router} from "react-router";
 import {Home} from "./modules/Home/Home";
+import {HomeLogin} from "./modules/HomeLogin/HomeLogin";
 import {EventPage} from "./modules/EventPage/EventPage";
 import {EventsDirectory} from "./modules/EventsDirectory/EventsDirectory";
 import {GroupPage} from "./modules/GroupPage/GroupPage";
@@ -16,7 +17,7 @@ class Root extends React.Component {
         return (
             <Provider store={store}>
                 <Router history={hashHistory}>
-                    <Route path="/" component={Home}/>
+                    <Route path="/" component={HomeLogin}/>
                     <Route path="/events" component={EventPage}/>
                     <Route path="/event-dir" component={EventsDirectory}/>
                     <Route path="/groups" component={GroupPage}/>
