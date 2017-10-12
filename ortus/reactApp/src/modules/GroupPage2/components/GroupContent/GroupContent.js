@@ -1,5 +1,5 @@
 var React = require('react');
-import { EventItem } from './components/EventItem/EventItem';
+import { EventItem } from 'src/components/EventItem/EventItem';
 
 import styles from './GroupContent.scss'
 /*

@@ -42,17 +42,19 @@ module.exports = {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader'}, // to transform JSX into JS
       // { test: /\.(s)*css$/, exclude: /node_modules/, loaders: ['style-loader', 'css-loader', 'sass-loader'], options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' } },
-
-      
-    {
-        test: /\.scss$/,
-        loaders: [ 'style', 'css', 'sass' ]
-    }
+      {
+          test: /\.scss$/,
+          loaders: [ 'style', 'css', 'sass' ]
+      }
     ],
   },
 
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.scss'],
+    root: [
+      // path.resolve('./reactApp/src'),
+      path.resolve('./reactApp')
+    ]
   },
 }

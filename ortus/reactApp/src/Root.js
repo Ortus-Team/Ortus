@@ -7,7 +7,7 @@ import {EventPage} from "./modules/EventPage/EventPage";
 import {EventsDirectory} from "./modules/EventsDirectory/EventsDirectory";
 import {GroupPage} from "./modules/GroupPage/GroupPage";
 import {GroupPage2} from "./modules/GroupPage2/GroupPage2";
-import {GroupsDirectory} from "./modules/GroupsDirectory/GroupsDirectory";
+import { GroupsDirectory } from "./modules/GroupsDirectory/GroupsDirectory";
 import configureStore from "./configureStore";
 
 const store = configureStore();
@@ -18,11 +18,10 @@ class Root extends React.Component {
             <Provider store={store}>
                 <Router history={hashHistory}>
                     <Route path="/" component={HomeLogin}/>
-                    <Route path="/events" component={EventPage}/>
-                    <Route path="/event-dir" component={EventsDirectory}/>
-                    <Route path="/groups" component={GroupPage}/>
-                    <Route path="/groups2" component={GroupPage2}/>
-                    <Route path="/groups-dir" component={GroupsDirectory}/>
+                    <Route path="/event" component={EventPage}/>
+                    <Route path="/events" component={EventsDirectory}/>
+                    <Route path="/group" component={GroupPage2}/>
+                    <Route path="/groups" component={GroupsDirectory}/>
                 </Router>
             </Provider>
         );

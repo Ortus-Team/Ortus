@@ -1,6 +1,6 @@
 var React = require('react');
 
-import { StudentGroupItem } from './components/StudentGroupItem/StudentGroupItem';
+import { StudentGroupItem } from 'src/components/StudentGroupItem/StudentGroupItem';
 import { styles } from './StudentGroups.scss';
 
 export class StudentGroups extends React.Component {

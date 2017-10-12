@@ -1,4 +1,4 @@
-var React = require('react');
+import React from 'react';
 
 import { styles } from './EventItem.scss';
 
@@ -26,21 +26,13 @@ export class EventItem extends React.Component {
                     {/* Date */}
                     <div className="eventText">
                         <h3 className="eventTitle">Event Title</h3>
-                        <h4 className="eventHost">- From Student Group</h4>
-                        <h4 className="eventDate">- Date/Time</h4>
-                        <h4 className="eventLoc">- Location</h4>
-                        {/* Logo */}
+                        <div className="eventHost"><div className="from"><h4>From </h4></div><div className="groupLink"><h4>Name of Student Group</h4></div></div>
+                        <h4 className="eventDate">Date/Time</h4>
+                        {/* <h4 className="eventLoc">- Location</h4> */}
+                        {/* Logo 
                         <div>
                             <img src="#" alt="logo" />
-                        </div>
-
-                        {/* Tags */}
-                        <div>
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

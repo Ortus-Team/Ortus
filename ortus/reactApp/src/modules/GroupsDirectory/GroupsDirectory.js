@@ -1,6 +1,7 @@
 var React = require('react');
 
-import { Navbar } from './components/Navbar/Navbar';
+//import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from 'src/components/Navbar/Navbar';
 import { DirectoryHeader } from './components/DirectoryHeader/DirectoryHeader';
 import { Filters } from './components/Filters/Filters';
 import { StudentGroups } from './components/StudentGroups/StudentGroups';

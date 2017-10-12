@@ -1,6 +1,6 @@
 var React = require('react');
 
-import { Navbar } from './components/Navbar/Navbar';
+import { Navbar } from 'src/components/Navbar/Navbar';
 import { GroupHeader } from './components/GroupHeader/GroupHeader';
 import { GroupHeader2 } from './components/GroupHeader2/GroupHeader2';
 import { GroupContent } from './components/GroupContent/GroupContent';

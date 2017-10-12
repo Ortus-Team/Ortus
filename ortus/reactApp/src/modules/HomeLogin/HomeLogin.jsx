@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 // import { Navbar } from './components/Navbar/Navbar';
 import { DynamicContent } from './components/DynamicContent/DynamicContent';
@@ -105,7 +106,7 @@ export class HomeLogin extends React.Component {
             <div className='navbarContainer'>
               {/* Logo */}
               <div className='logo'>
-                  <a href="#">Logo</a>
+                  <Link key='home' to='/'>Logo</Link>
               </div>
 
               {/* Search 
@@ -116,8 +117,9 @@ export class HomeLogin extends React.Component {
               {/* Main links */}
               <div className='mainLinks'>
                   <a href="#">Search</a>
-                  <a href="#">Student Group Directory</a>
-                  <a href="#">Events</a>
+                  {/* <a href="#">Student Group Directory</a> */}
+                  <Link key='groups' to='/groups'>Student Group Directory</Link>
+                  <Link key='events' to='/events'>Events</Link>
               </div>
 
               {/* Account */}

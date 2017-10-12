@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+import { Link } from 'react-router';
 
 import { styles } from './Navbar.scss';
 
@@ -24,25 +25,31 @@ export class Navbar extends React.Component {
             <div className='navbarContainer'>
                 {/* Logo */}
                 <div className='logo'>
-                    <a href="#">Logo</a>
+                    <Link key='home' to='/'>Logo</Link>
                 </div>
 
-                {/* Search */}
+                {/* Search 
                 <div className='search'>
                     <a href="#">Search</a>
-                </div>
+                </div> */}
 
                 {/* Main links */}
                 <div className='mainLinks'>
-                    <a href="#">Student Group Directory</a>
-                    <a href="#">Events</a>
-                    <a href="#">Login</a>
+                    <a href="#">Search</a>
+                    <Link key='groups' to='/groups'>Student Group Directory</Link>
+                    <Link key='events' to='/events'>Events</Link>
                 </div>
 
-                {/* Translate */}
+                {/* Account */}
+                <div className='account'>
+                    <a href="#">Log In</a>
+                    <a href="#" className='signup'>Sign up</a>
+                </div>
+
+                {/* Translate
                 <div className='translate'>
                     <a href="#">Translate</a>
-                </div>
+                </div> */}
             </div>
         </div>
     );
